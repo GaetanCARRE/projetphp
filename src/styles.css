@@ -1,0 +1,157 @@
+header {
+    
+    text-align: center;
+    font-size: larger;
+    color : white;
+    background-color: black;
+    padding: 1rem 0 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    
+}
+
+.header_h1 {
+    margin: 0px 0px 0px 0px;
+    
+}
+
+body {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    font-family: 'Roboto', sans-serif;
+    /* position: relative;  */
+}
+
+.logo_header {
+    padding: 0.8rem 0 0.8rem 0;
+    color: white;
+}
+
+.a1 {grid-area: a1;}
+.a2 {grid-area: a2;}
+.a3 {grid-area: a3;}
+.a4 {grid-area: a4; /* margin-right: 1rem; */}
+
+.grid-container-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 8fr 1fr 1fr 1fr;
+    grid-template-areas: ". . . a1  a2 a3 a4";
+
+}
+
+ion-icon {
+    font-size: 25px;
+}
+
+.banner{
+    width: 100%;
+}
+
+.div_button_home {
+    text-align: center;    
+}
+
+.button_home {
+    color:black;
+    background-color: white;
+    border: 0px;
+    border-radius: 0.3rem;
+    font-size: large;
+    padding: 1rem 2.5rem 1rem 2.5rem;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    
+}
+
+.img_home {
+    width: 80%;
+}
+
+.img_home_1 {grid-area: p1;}
+.img_home_2 {grid-area: p2;}
+.img_home_3 {grid-area: p3;}
+
+.grid-container-home {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "p1 p2 p3";
+    
+    
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+.top {
+    position: relative;
+}
+
+
+/* ---------------------------------footer---------------------------------------- */
+
+footer {
+    
+    width: 100%;
+    background-color: #e2e2e2;
+    text-align: center;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    
+    
+}
+
+.footer_icon1 {grid-area: p1;}
+.footer_icon2 {grid-area: p2;}
+.footer_icon3 {grid-area: p3;}
+.footer1 {grid-area: p4;}
+.footer2 {grid-area: p5;}
+.footer3 {grid-area: p6;}
+.hr_footer {grid-area: p7;}
+
+.grid-container-footer1 {
+    
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: ". p1 p2 p3 ."
+                         
+}
+.grid-container-footer2 {
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "p4 p5 p6"
+                         
+}
+
+
+hr {
+    width: 95%;
+    size: 1px;
+  }
+
+
+/* #footer {
+    width: 100%;
+    position:fixed;
+    bottom: 0;
+} */
+
+
+
+/* -------------------------------------------SHOP---------------------------------------- */
+
+.filtre_gauche {grid-area: p1;}
+.shop_droite {grid-area: p2;}
+
+.container-grid-shop 
+{
+    display: grid;
+    grid-template-columns:  1fr 5fr;
+    grid-template-areas: "p1 p2"
+    
+}

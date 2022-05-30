@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Akshar&family=Roboto&display=swap');
+
+
+html{
+    height: 100%;
+    
+}
+header {
+    color : black;
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 1.5rem;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color : #ffffff;
+    
+}
+form {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 3rem;
+    padding: 2rem 2rem 2rem 2rem;
+    border-radius: 2rem;
+    
+}
+
+input {
+    border-radius: 0.5rem;
+    height: 3rem;
+    border: 1px solid black;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 1rem;
+}
+
+
+.formulaire {
+    
+    border-radius: 2rem;
+    font-size: 1rem;
+    margin : 3rem 20rem 3rem 20rem;
+    background-color: #e9e6e6;
+}
+
+button{
+    border-radius: 0.5rem;
+    height: 2rem;
+    border: 1px solid black;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 1rem;
+    
+}
+
+h1{
+    font-size:larger;
+}
+

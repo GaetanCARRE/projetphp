@@ -26,9 +26,8 @@
                         if($password === $password_conf)
                         {
                             $password = hash('sha256', $password);
-                            $ip = $_SERVER['REMOTE_ADDR'];
-                            $insert = $bdd->prepare('INSERT INTO utilisateurs(pseudo, email, password, ip) VALUES (:pseudo,:email,:password,:ip)');
-                            $insert-> execute(array('pseudo' => $pseudo,'email' => $email, 'password' => $password, 'ip' => $ip));
+                            $insert = $bdd->prepare('INSERT INTO utilisateurs(pseudo, email, password) VALUES (:pseudo,:email,:password)');
+                            $insert-> execute(array('pseudo' => $pseudo,'email' => $email, 'password' => $password));
                             header('Location:inscription.php?reg_err=success');
                             
                         }
@@ -43,3 +42,4 @@
         else {header('Location:inscription.php?reg_err=already');die();}
 
     }
+

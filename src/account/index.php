@@ -13,10 +13,8 @@
       require_once 'compteur.php';
       compteur();
     ?>
-    <header>
-      <h1>Connexion</h1>
-    </header>
     <div class="formulaire">
+      <h1>Connexion</h1>
     <?php
         if (isset($_GET['login_err']))
         {

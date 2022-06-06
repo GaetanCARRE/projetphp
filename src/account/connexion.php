@@ -19,7 +19,7 @@
                 if($data['password'] === $password)
                 {
                     $_SESSION['user'] = $data['pseudo'];
-                    header('Location:landing.php');
+                    header('Location:/website/src/index.php');
                 }
                 else header('Location:index.php?login_err=password');
             }

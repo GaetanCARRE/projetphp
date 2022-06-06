@@ -28,7 +28,7 @@
 
         <div class="div_button_home">
             <img src="img/banner.jpg" class="banner" alt="banner">
-            <a href="shop/shop.html">
+            <a href="shop/shop.php">
                 <button class="button_home" onclick="">SHOP NOW</button>
             </a>
         </div>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Home</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+    </script>
+    <script>
+        $(function () {
+            $("#header").load("../header/header.html");
+            $("#footer").load("../header/footer.html");
+        });
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+</head>
+
+<body>
+
+    <div id="header"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">FILTRES</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="shop.html">Prix croissant</a>
+            <a href="shop.html">Prix decroissant</a>
+            <a href="shop.html">filtre 3</a>
+            <div class = "Check">
+                <input type="checkbox" id="scales1" name="scales1"
+                       checked>
+                <label for="scales"> 0€-30€</label>
+            </div>
+            <div class="Check">
+                <input type="checkbox" id="scales2" name="scale2"
+                       checked>
+                <label for="scales"> 30€-60€</label>
+            </div>
+            <div class="Check">
+                <input type="checkbox" id="scales3" name="scales3"
+                       checked>
+                <label for="scales">60€-100€</label>
+            </div>
+          </div>
+        </div>
+    <br>
+    <div>
+        <div class="container-grid-shop">
+            <div id="a1">
+                <img class="img_home" src="../img/Parra.jpg" alt="Parra">
+                <h4>49.99€</h4>
+                <button type="button" class="btn btn-secondary"><i class="bi bi-cart-plus"></i></button>
+            </div>
+            <div id="a2">
+                <img class="img_home" src="../img/Parra.jpg" alt="Parra">
+                <h3>PARRA</h3>
+                <button type="button" class="btn btn-secondary"><i class="bi bi-cart-plus"></i></button>
+            </div>
+            <div id="a3">
+                <img class="img_home" src="../img/jordan.jpg" alt="Parra">
+                <h3>PARRA</h3>
+                <button type="button" class="btn btn-secondary"><i class="bi bi-cart-plus"></i></button>
+            </div>
+        </div>
+        <div class="container-grid-shop">
+            <div id="a4">
+                <img class="img_home" src="../img/Parra.jpg" alt="Parra">
+                <h3>PARRA</h3>
+                <button type="button" class="btn btn-secondary"><i class="bi bi-cart-plus"></i></button>
+            </div>
+            <div id="a5">
+                <img class="img_home" src="../img/Parra.jpg" alt="Parra">
+                <h3>PARRA</h3>
+                <button type="button" class="btn btn-secondary"><i class="bi bi-cart-plus"></i></button>
+            </div>
+            <div id="a6">
+                <img class="img_home" src="../img/Parra.jpg" alt="Parra">
+                <h3>PARRA</h3>
+                <button type="button" class="btn btn-secondary"><i class="bi bi-cart-plus"></i></button>
+            </div>
+        </div>
+        <div class="container-grid-shop">
+            <div id="a7">
+                <img class="img_home" src="../img/Parra.jpg" alt="Parra">
+                <h3>PARRA</h3>
+                <button type="button" class="btn btn-secondary"><i class="bi bi-cart-plus"></i></button>
+            </div>
+            <div id="a8">
+                <img class="img_home" src="../img/Parra.jpg" alt="Parra">
+                <h3>PARRA</h3>
+                <button type="button" class="btn btn-secondary"><i class="bi bi-cart-plus"></i></button>
+            </div>
+            <div id="a9">
+                <img class="img_home" src="../img/Parra.jpg" alt="Parra">
+                <h3>PARRA</h3>
+                <button type="button" class="btn btn-secondary"><i class="bi bi-cart-plus"></i></button>
+            </div>
+        </div>
+    </div>
+        <div id="footer"></div>
+
+</body>
+
+
+<script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+</script>
+
+</html>
+<style>.container-grid-shop 
+    {
+        /*width: 90%;*/
+        padding-left: 100px;
+        padding-right: 50px;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:  "p1 p2 p3";
+
+    }
+    #a1,#a4,#a7{
+        grid-area: p1;
+    position: relative;}
+    #a2,#a5,#a8{grid-area: p2;}
+    #a3,#a6,#a9{grid-area: p3;}
+
+    .dropbtn {
+        background-color: black;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: grey;
+    }
+
+    .dropdown {
+        position: fixed;
+        padding-left: 10px;
+        padding-top: 10px;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown a:hover {background-color: #e1e1e1}
+
+    .show {display: block;}
+    [type="button"]{margin-bottom: 10px;}
+
+    .Check{padding-top: 10px;}
+
+   </style>

@@ -295,6 +295,7 @@ hr {
 .grid_column_shop {
     text-align: center;
     display: grid;
+    gap: 2rem;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
         "a1 a2 a3"
@@ -304,6 +305,14 @@ hr {
     
 }
 
+.grid_column_shop :hover
+{
+    border: 1px rgb(194, 194, 194) solid;
+} 
+.article :hover
+{
+    border: none;
+}
 
 .img_article {width: 70%;}
 

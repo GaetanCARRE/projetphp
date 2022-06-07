@@ -59,7 +59,7 @@ $product = afficher($_GET['o'], $db);
             $j = 9;
             $num_art = 0;
             for ($i; $i < $j; $i++) {
-                echo "<div id='article_{$num_art}'>";
+                echo "<div class='article'>";
                 echo "<img src= ./{$product[$i]['image']} class='img_article'><br>";
                 echo $product[$i]['nom'] . "<br>" . $product[$i]['prix'];
                 $num_art++;

@@ -56,7 +56,7 @@ $product = afficher($_GET['o'], $db);
 
 
             $i = 0;
-            $j = 6;
+            $j = 9;
             $num_art = 0;
             for ($i; $i < $j; $i++) {
                 echo "<div id='article_{$num_art}'>";

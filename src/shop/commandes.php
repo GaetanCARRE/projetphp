@@ -35,11 +35,10 @@ function afficher()
 
     $res->execute();
 
-    /* $data = $res->fetchAll(PDO::FETCH_OBJ); */
+    $data = $res->fetchAll(PDO::FETCH_ASSOC);  
+    return $data;
 
-    return $res;
-
-    /* $res->closeCursor(); */
+  
   }
 }
 
@@ -53,3 +52,5 @@ function supprimer($id)
     $res->closeCursor();
   }
 }
+
+

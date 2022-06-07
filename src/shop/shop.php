@@ -3,7 +3,6 @@
 require("commandes.php");
 $product = afficher();
 
-$k = 0;
 /* foreach($product as $pr)
 {
     $product_name[$k] = $pr['name'];
@@ -77,45 +76,29 @@ require("../account/config.php");
             <div class="grid_column_shop">
 
                 <?php
-                $a = 1;
-                $i = 1;
-                $b = 3;
-                $j = 3;
-                /*
-                while ($donnees = $product->fetch() and $i>=$a and $i<=$b) {
-                    echo "<div class='article_{$i}'>";
-                    echo "<img src= ../{$donnees['image']} class='img_article'><br>";
-                    echo $donnees['nom']. "<br>" . $donnees['prix'];
-                    
-                    /* echo $donnees['nom']; */
-                /*  ?>
-                    <a href="www.google.fr">
-                    <ion-icon name="bag-add-outline"></ion-icon>
-                    </a>
-                    <?php
-                    echo "</div>";
-                    
-                    $i++;
-                    $j++;
-                    
-                }  */
 
-                foreach ($product as $p) {
-                    echo "<div class='article_{$i}'>";
-                    echo "<img src= ../{$p['image']} class='img_article'><br>";
-                    echo $p['nom'] . "<br>" . $p['prix'];
+                
+                $i = 0;
+                $j = 6;
+                $num_art = 0;
+                for ($i; $i < $j; $i++) {
+                    echo "<div id='article_{$num_art}'>";
+                    echo "<img src= ../{$product[$i]['image']} class='img_article'><br>";
+                    echo $product[$i]['nom'] . "<br>" . $product[$i]['prix'];
+                    $num_art++;
+                
 
-                    /* echo $donnees['nom']; */
-                ?>
-                    <a href="www.google.fr">
-                        <ion-icon name="bag-add-outline"></ion-icon>
-                    </a>
-                <?php
-                    echo "</div>";
 
-                    $i++;
-                    $j++;
+                /* echo $donnees['nom']; */
+                
+                echo "<a href='www.google.fr'>";
+                echo "<ion-icon name='bag-add-outline'></ion-icon>";
+                echo "</a>";
+                echo "</div>";
                 }
+                $i++;
+                $j++;
+
                 ?>
             </div>
 
@@ -128,13 +111,15 @@ require("../account/config.php");
 
     <div class="center">
         <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a href="#">1</a>
-            <a href="#" class="active">2</a>
-            <a href="test.php">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
+            <a >&laquo;</a>
+            <?php 
+            for ($i=0; $i < round(count($product)/9,0,PHP_ROUND_HALF_UP) ; $i++) { 
+                ?>
+                    <a href='shop.php?p=<?=$i ?>'><?=$i+1 ?></a>
+                <?php
+            }
+            ?>
+
             <a href="#">&raquo;</a>
         </div>
     </div>
@@ -154,17 +139,17 @@ require("../account/config.php");
 
     // Close the dropdown if the user clicks outside of it
     window.onclick = function(event) {
-      if (!event.target.matches('.dropbtn')) {
+        if (!event.target.matches('.dropbtn')) {
 
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
         }
-      }
     }
 </script>
 
@@ -179,7 +164,8 @@ require("../account/config.php");
         cursor: pointer;
     }
 
-    .dropbtn:hover, .dropbtn:focus {
+    .dropbtn:hover,
+    .dropbtn:focus {
         background-color: grey;
     }
 
@@ -196,7 +182,7 @@ require("../account/config.php");
         background-color: #f9f9f9;
         min-width: 160px;
         overflow: auto;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     }
 
     .dropdown-content a {
@@ -206,11 +192,19 @@ require("../account/config.php");
         display: block;
     }
 
-    .dropdown a:hover {background-color: #e1e1e1}
+    .dropdown a:hover {
+        background-color: #e1e1e1
+    }
 
-    .show {display: block;}
-    [type="button"]{margin-bottom: 10px;}
+    .show {
+        display: block;
+    }
 
-    .Check{padding-top: 10px;}
+    [type="button"] {
+        margin-bottom: 10px;
+    }
 
-   </style>
+    .Check {
+        padding-top: 10px;
+    }
+</style>

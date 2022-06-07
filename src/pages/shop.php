@@ -1,6 +1,7 @@
 <?php
 
 $product = afficher($_GET['o'], $db);
+
 ?>
 
 <div class="container-grid-shop">
@@ -75,7 +76,6 @@ $product = afficher($_GET['o'], $db);
             }
             $i++;
             $j++;
-
             ?>
         </div>
 

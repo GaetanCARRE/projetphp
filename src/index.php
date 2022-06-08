@@ -1,5 +1,6 @@
 <?php
 session_start();
+//altan
 $db = require_once('./config/config.php');
 
 

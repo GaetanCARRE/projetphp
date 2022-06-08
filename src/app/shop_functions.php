@@ -27,7 +27,8 @@ function ajouter($image, $nom, $prix, $taille)
 function afficher($tri = "asc", $db, $cat = null)
 {
     
-    if ($tri == "asc" || $tri = "NULL") {//j'ai mis null sinon le cas ou ya pas de $_get les articles s'affiche pas 
+    
+    if ($tri == "asc") {
       $text = "nom ASC";
     }
     else if ($tri == "desc") {

@@ -1,6 +1,22 @@
 <?php
-
-$product = afficher($_GET['o'], $db);
+$ordre = "asc";
+$cat = null;
+$page = 0;
+if (isset($_GET['o'])){    
+    $ordre = $_GET['o'];
+   
+}
+if (isset($_GET['c'])){
+    $cat = $_GET['c'];
+    
+}
+if (isset($_GET['pa'])){
+    if($_GET['pa']> sizeof($product)/9+1 or $_GET['pa']< 0)
+        header("Location: ?p=shop&o=$ordre&c=$cat");
+    else
+        $page = $_GET['pa'];
+}
+$product = afficher($ordre, $db, $cat);
 
 ?>
 
@@ -9,10 +25,11 @@ $product = afficher($_GET['o'], $db);
         <div class="dropdown">
             <button onclick="myFunction()" class="dropbtn">FILTRES</button>
             <div id="myDropdown" class="dropdown-content">
-                <a href="?p=shop&o=prix_asc">Prix croissant</a>
-                <a href="?p=shop&o=prix_desc">Prix decroissant</a>
-                <a href="?p=shop&o=asc">Nom croissant</a>
-                <a href="?p=shop&o=desc">Nom decroissant</a>
+                <a href="?p=shop">Reinitialiser</a>
+                <a href="?p=shop&o=prix_asc&c=<?php echo $cat; ?>&pa=<?php echo $page;?>">Prix croissant</a>
+                <a href="?p=shop&o=prix_desc&c=<?php echo $cat; ?>&pa=<?php echo $page;?>">Prix decroissant</a>
+                <a href="?p=shop&o=asc&c=<?php echo $cat; ?>&pa=<?php echo $page?>;">Nom croissant</a>
+                <a href="?p=shop&o=desc&c=<?php echo $cat; ?>&pa=<?php echo $page?>;">Nom decroissant</a>
 
                 <div>
                     <h3>Categorie</h3>
@@ -21,12 +38,12 @@ $product = afficher($_GET['o'], $db);
                     $data->execute();
                     $result = $data->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($result as $row) {
-                        
+
 
                     ?>
 
                         <div class="list-group-item checkbox">
-                            <label><input type="checkbox" value="<?php echo $row['name']; ?>"> <?php echo $row['name']; ?></label>
+                            <label><a href="?p=shop&o=<?php echo $ordre ?>&c=<?php echo $row['id']; ?>&pa=0"> <?php echo $row['name']; ?></a></label>
                         </div>
 
                     <?php
@@ -34,18 +51,14 @@ $product = afficher($_GET['o'], $db);
                     ?>
 
                 </div>
-
+                    
                 <div class="Check">
-                    <input type="checkbox" id="scales1" name="scales1" checked>
-                    <label for="scales"> 0€-30€</label>
-                </div>
-                <div class="Check">
-                    <input type="checkbox" id="scales2" name="scale2" checked>
-                    <label for="scales"> 30€-60€</label>
-                </div>
-                <div class="Check">
-                    <input type="checkbox" id="scales3" name="scales3" checked>
-                    <label for="scales">60€-100€</label>
+                <h3>Prix</h3>
+                <form action="" method="POST">
+                        <input type="text" placeholder="Prix min">
+                        <input type="text" placeholder="Prix max">
+                        <input type="submit" >
+                    </form>
                 </div>
             </div>
         </div>
@@ -59,10 +72,11 @@ $product = afficher($_GET['o'], $db);
             $i = 0;
             $j = 9;
             $num_art = 0;
-            for ($i; $i < $j; $i++) {
+            for ($i; $i < $j and $i+$page*9<sizeof($product); $i++) {
                 echo "<div class='article'>";
-                echo "<img src= ./{$product[$i]['image']} class='img_article'><br>";
-                echo $product[$i]['nom'] . "<br>" . $product[$i]['prix'];
+                echo "<img src= ./{$product[$i+$page*9]['image']} class='img_article'><br>";
+                echo $product[$i+$page*9]['nom'] . "<br>" . $product[$i+$page*9]['prix'];
+            
                 $num_art++;
 
 
@@ -88,16 +102,16 @@ $product = afficher($_GET['o'], $db);
 
 <div class="center">
     <div class="pagination">
-        <a>&laquo;</a>
+        <a href="?p=shop&o=<?php echo $ordre?>&c=<?php echo $cat; ?>&pa=<?php ($pageinf = $page-1); $pageinf = $pageinf%(sizeof($product)/9+1);echo $page;?>">&laquo;</a>
         <?php
-        for ($i = 0; $i < round(count($product) / 9, 0, PHP_ROUND_HALF_UP); $i++) {
+        for ($i = 0; $i < ceil((sizeof($product) )/ 9 ); $i++) {
         ?>
-            <a href='?p=shop&page=<?= $i ?>'><?= $i + 1 ?></a>
+            <a <?php if($page == $i) echo"class='active'";?> href='?p=shop&o=<?php echo $ordre?>&c=<?php echo $cat; ?>&pa=<?= $i ?>'><?= $i + 1 ?></a>
         <?php
         }
         ?>
 
-        <a href="#">&raquo;</a>
+        <a href="?p=shop&o=<?php echo $ordre?>&c=<?php echo $cat; ?>&pa=<?php ($page++); $page = $page%(sizeof($product)/9+1);echo $page;?>">&raquo;</a>
     </div>
 </div>
 

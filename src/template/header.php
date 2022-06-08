@@ -25,7 +25,7 @@
     <header>
 
         <div class="grid-container-header">
-            <h1 class="header_h1 a1">BSTN</h1>
+            <h1 class="header_h1 a1">F&S</h1>
 
             <a href="/website/src/account/index.php" class="a2" id="open">
                 <ion-icon name="person-circle-outline" class="logo_header"></ion-icon>
@@ -41,10 +41,10 @@
 </div>
 </div>
 </div> -->
-            <a href="http://google.com" class="a3">
+            <a href="./" class="a3">
                 <ion-icon name="home-outline" class="logo_header"></ion-icon>
             </a>
-            <a href="http://google.com" class="a4">
+            <a href="./" class="a4">
                 <ion-icon name="cart-outline" class="logo_header"></ion-icon>
             </a>
         </div>

@@ -9,10 +9,7 @@
   </head>
 
   <body>
-    <?php
-      require_once 'compteur.php';
-      compteur();
-    ?>
+    <
     <div class="formulaire">
       <h1>Connexion</h1>
     <?php

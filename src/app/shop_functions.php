@@ -63,6 +63,45 @@ function afficher($tri = "asc", $db, $cat = null)
 }
 
 
+function afficherV2($tri = "asc", $db, $cat = null,$Prix_min,$Prix_max)
+{
+    
+    
+    if ($tri == "asc") {
+      $text = "nom ASC";
+    }
+    else if ($tri == "desc") {
+      $text = "nom DESC";
+    }
+    else if ($tri == "prix_asc") {
+      $text = "prix ASC";
+    }
+    else if ($tri == "prix_desc") {
+      $text = "prix DESC";
+    }
+    $categorie = "";
+    if($cat != null)
+    {
+      $categorie = " and product.categorie =".$cat;
+    }
+
+    $res = $db->prepare("
+      SELECT *, product.categorie as categorie
+      FROM product 
+      LEFT JOIN categorie ON product.categorie = categorie.id
+       where prix >=".$Prix_min." and prix<=".$Prix_max. $categorie. "
+      ORDER BY ".$text);
+
+    $res->execute();
+
+    $data = $res->fetchAll(PDO::FETCH_ASSOC);  
+    return $data;
+
+  
+  
+}
+
+
 function supprimer($id)
 {
   if (require("../account/config.php")) {

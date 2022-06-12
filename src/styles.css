@@ -240,6 +240,33 @@ hr {
 .filtre_gauche {
     grid-area: p1;
 }
+.btn-filtre .btn{
+    
+  border-radius: 80px;
+}
+.btn-filtre{
+    padding-left: 50px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.btn-filtre .btn:hover,
+.btn-filtre .btn:focus {
+    background-color: grey;
+}
+.dropdown h3{
+    
+        background: linear-gradient(to right, #ACABB9, #000);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+
+    }
+
+
+
+
+
 
 .shop_droite {
     grid-area: p2;
@@ -363,6 +390,7 @@ hr {
 .show {
     display: block;
 }
+
 
 [type="button"] {
     margin-bottom: 10px;

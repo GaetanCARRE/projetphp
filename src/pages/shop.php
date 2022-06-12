@@ -2,6 +2,11 @@
 $ordre = "asc";
 $cat = null;
 $page = 0;
+$Prix_min=0;
+$Prix_max=1000;
+$product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
+
+
 if (isset($_GET['o'])){    
     $ordre = $_GET['o'];
    
@@ -16,7 +21,23 @@ if (isset($_GET['pa'])){
     else
         $page = $_GET['pa'];
 }
-$product = afficher($ordre, $db, $cat);
+if (isset($_POST['Prix_min'])){    
+    $Prix_min= intval($_POST['Prix_min']);
+    
+   
+}
+
+if (isset($_POST['Prix_max']) && !empty($_POST['Prix_max'])){    
+    $Prix_max= intval($_POST['Prix_max']);  
+}
+
+if($Prix_max<$Prix_min){
+    $Prix_min=0;
+    $Prix_max=1000;
+}
+
+
+$product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
 
 ?>
 
@@ -54,13 +75,16 @@ $product = afficher($ordre, $db, $cat);
                     
                 <div class="Check">
                 <h3>Prix</h3>
-                <form action="" method="POST">
-                        <input type="text" placeholder="Prix min">
-                        <input type="text" placeholder="Prix max">
-                        <input type="submit" >
+                <form action="" method="post">
+                        <input type="text" placeholder="Prix min" name="Prix_min">
+                        <input type="text" placeholder="Prix max" name="Prix_max">
+                        <div class="container">
+                          <div class="btn-filtre"> <button type="submit" class= btn>Filtrer prix</button></div>
+                        </div>
                     </form>
                 </div>
             </div>
+    
         </div>
     </div>
     <div class="shop_droite">
@@ -72,10 +96,11 @@ $product = afficher($ordre, $db, $cat);
             $i = 0;
             $j = 9;
             $num_art = 0;
-            for ($i; $i < $j and $i+$page*9<sizeof($product); $i++) {
+            for ($i; $i < $j and $i+intval($page)*9<sizeof($product); $i++) {
+                
                 echo "<div class='article'>";
-                echo "<img src= ./{$product[$i+$page*9]['image']} class='img_article'><br>";
-                echo $product[$i+$page*9]['nom'] . "<br>" . $product[$i+$page*9]['prix'];
+                echo "<img src= ./{$product[$i+intval($page)*9]['image']} class='img_article'><br>";      //jy ajoute intval qui convertir string en int
+                echo $product[$i+intval($page)*9]['nom'] . "<br>" . $product[$i+intval($page)*9]['prix']; //jy ajoute intval qui convertir string en int
             
                 $num_art++;
 
@@ -120,12 +145,13 @@ $product = afficher($ordre, $db, $cat);
     /* When the user clicks on the button, 
     toggle between hiding and showing the dropdown content */
     function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
+        document.getElementById("myDropdown").style.display="block";
+        content.classList.toogle("show");
+            }
 
     // Close the dropdown if the user clicks outside of it
     window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
+        if (event.target.matches('.dropbtn')) {
 
             var dropdowns = document.getElementsByClassName("dropdown-content");
             var i;
@@ -134,6 +160,8 @@ $product = afficher($ordre, $db, $cat);
                 if (openDropdown.classList.contains('show')) {
                     openDropdown.classList.remove('show');
                 }
+                
+                
             }
         }
     }

@@ -28,16 +28,16 @@ SET time_zone = "+00:00";
 -- Structure de la table `categorie`
 --
 
-CREATE TABLE `categorie` (
-  `id` int NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE categorie (
+  id int NOT NULL,
+  name varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `categorie`
 --
 
-INSERT INTO `categorie` (`id`, `name`) VALUES
+INSERT INTO categorie (id, name) VALUES
 (1, 'Vêtements'),
 (2, 'Chaussures'),
 (3, 'Accessoires');
@@ -48,22 +48,22 @@ INSERT INTO `categorie` (`id`, `name`) VALUES
 -- Structure de la table `product`
 --
 
-CREATE TABLE `product` (
-  `id` int NOT NULL,
-  `nom` varchar(255) NOT NULL,
-  `prix` double NOT NULL,
-  `marque` varchar(255) NOT NULL,
-  `image` text NOT NULL,
-  `taille` varchar(255) NOT NULL,
-  `categorie` int NOT NULL,
-  `quantite` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE product (
+  id int NOT NULL,
+  nom varchar(255) NOT NULL,
+  prix double NOT NULL,
+  marque varchar(255) NOT NULL,
+  image text NOT NULL,
+  taille varchar(255) NOT NULL,
+  categorie int NOT NULL,
+  quantite int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `product`
 --
 
-INSERT INTO `product` (`id`, `nom`, `prix`, `marque`, `image`, `taille`, `categorie`, `quantite`) VALUES
+INSERT INTO product (id, nom, prix, marque, image, taille, categorie, quantite) VALUES
 (1, 'Jordan 1', 140, 'Jordan', 'img/JORDAN_CH.webp', '43', 2, 10),
 (4, 'Veste Nike', 140, 'Nike', 'img/NIKE_VESTE.webp', 'M', 1, 7),
 (5, 'Hoodie Chase', 110, 'Carhartt', 'img/CARHARTT_HOODIE.webp', 'M', 1, 2),
@@ -87,18 +87,17 @@ INSERT INTO `product` (`id`, `nom`, `prix`, `marque`, `image`, `taille`, `catego
 -- Structure de la table `utilisateurs`
 --
 
-CREATE TABLE `utilisateurs` (
-  `id` int NOT NULL,
-  `pseudo` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
+CREATE TABLE utilisateurs (
+  id int NOT NULL,
+  pseudo varchar(100) NOT NULL,
+  email varchar(100) NOT NULL,
+  password text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`id`, `pseudo`, `email`, `password`) VALUES
+INSERT INTO utilisateurs (id, pseudo, email, password) VALUES
 (1, 'gaetan', 'gaetan.carre74@gmail.com', 'cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29'),
 (2, 'altan', 'altan@gmail.com', 'd2ceb37d4f2f193133db1bfc3d2163cb061e4ba4d4ff2fddf05a1dedb78876d7'),
 (3, 'djelel', 'djelel@gmail.com', 'e10dc45fdd1e1de84913e3d23f1f7ab721b1ffacbe91002d1f9c45a4e044867d');
@@ -110,20 +109,20 @@ INSERT INTO `utilisateurs` (`id`, `pseudo`, `email`, `password`) VALUES
 --
 -- Index pour la table `categorie`
 --
-ALTER TABLE `categorie`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE categorie
+  ADD PRIMARY KEY (id);
 
 --
 -- Index pour la table `product`
 --
-ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE product
+  ADD PRIMARY KEY (id);
 
 --
 -- Index pour la table `utilisateurs`
 --
-ALTER TABLE `utilisateurs`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE utilisateurs
+  ADD PRIMARY KEY (id);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -132,20 +131,20 @@ ALTER TABLE `utilisateurs`
 --
 -- AUTO_INCREMENT pour la table `categorie`
 --
-ALTER TABLE `categorie`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE categorie
+  MODIFY id int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `product`
 --
-ALTER TABLE `product`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+ALTER TABLE product
+  MODIFY id int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
-ALTER TABLE `utilisateurs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE utilisateurs
+  MODIFY id int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

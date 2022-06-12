@@ -44,7 +44,7 @@
             <a href="./" class="a3">
                 <ion-icon name="home-outline" class="logo_header"></ion-icon>
             </a>
-            <a href="./" class="a4">
+            <a href="./?p=checkout" class="a4">
                 <ion-icon name="cart-outline" class="logo_header"></ion-icon>
             </a>
         </div>

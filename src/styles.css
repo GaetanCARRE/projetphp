@@ -16,22 +16,6 @@ header {
 
 }
 
-/* Pour le modal button pour se deco */
-/* .modal-container
-{
-    display: none;
-}
-
-.flex-container
-{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-} */
-
-
 
 body {
     width: 100%;
@@ -225,11 +209,12 @@ hr {
 }
 
 
-/* #footer {
-    width: 100%;
-    position:fixed;
-    bottom: 0;
-} */
+.flex-wrapper {
+    display: flex;
+    min-height: 81.2vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
 
 
@@ -399,3 +384,48 @@ hr {
 .Check {
     padding-top: 10px;
 }
+
+
+
+
+/* ---------------------------------checkout------------------------------------------ */
+
+.grid-container-checkout
+{
+    padding-top: 7rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.payment-checkout
+{
+    background-color: #ececec;
+}
+
+.product-checkout 
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "v1 v1 v1 v1";
+}
+
+.votrepanier
+{
+    grid-area: v1;
+}
+
+.payment-checkbox 
+{
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    appearance: none;
+    
+    
+    

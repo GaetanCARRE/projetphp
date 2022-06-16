@@ -1,6 +1,7 @@
-<?php
+ <?php
     session_start();
-    require_once 'config.php';
+    require_once '../config/config.php';
+    echo('test');
 
     if(isset($_POST['email']) && isset($_POST['password']))
     {
@@ -10,7 +11,7 @@
         $check->execute(array($email));
         $data = $check->fetch();
         $row = $check->rowCount();
-
+        
         if($row == 1)
         {
             if(filter_var($email, FILTER_VALIDATE_EMAIL))
@@ -18,8 +19,9 @@
                 $password = hash('sha256', $password);
                 if($data['password'] === $password)
                 {
+                    
                     $_SESSION['user'] = $data['pseudo'];
-                    header('Location:/website/src/index.php');
+                    header('Location:/website/src/account/landing.php');
                 }
                 else header('Location:index.php?login_err=password');
             }

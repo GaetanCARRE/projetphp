@@ -99,9 +99,10 @@ $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
             for ($i; $i < $j and $i+intval($page)*9<sizeof($product); $i++) {
                 
                 echo "<div class='article'>";
-                echo "<img src= ./{$product[$i+intval($page)*9]['image']} class='img_article'><br>";      //jy ajoute intval qui convertir string en int
-                echo $product[$i+intval($page)*9]['nom'] . "<br>" . $product[$i+intval($page)*9]['prix']; //jy ajoute intval qui convertir string en int
-            
+                echo "<img src= ./{$product[$i+intval($page)*9]['image']} class='img_article'><br>"; 
+                echo "<div class ='product-desc'>";     //jy ajoute intval qui convertir string en int
+                echo  "<div class='product-name'>" . $product[$i+intval($page)*9]['nom'] . "</div><div class ='prix'>" . $product[$i+intval($page)*9]['prix'] .' € </div>'; //jy ajoute intval qui convertir string en int
+                echo "</div>";
                 $num_art++;
 
 
@@ -109,8 +110,10 @@ $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
                 /* echo $donnees['nom']; */
 
                 echo "<a href='www.google.fr'>";
-                echo "<ion-icon name='bag-add-outline'></ion-icon>";
+                echo "<div class= 'div-acheter'>";
+                echo "<button class='button-acheter'>Ajouter au Panier</button>";
                 echo "</a>";
+                echo "</div>";
                 echo "</div>";
             }
             $i++;

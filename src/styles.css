@@ -57,6 +57,7 @@ body {
 
 ion-icon {
     font-size: 25px;
+    color: black;
 }
 
 .banner {
@@ -305,6 +306,8 @@ hr {
 }
 
 .grid_column_shop {
+    font-weight: 700;
+    font-size: 18px;
     text-align: center;
     display: grid;
     gap: 2rem;
@@ -317,15 +320,20 @@ hr {
     
 }
 
-.grid_column_shop :hover
+.grid_column_shop :hover .button-acheter
+{
+    visibility: visible;
+    border: solid 1px black;
+} 
+.grid_column_shop :hover 
 {
     border: 1px rgb(194, 194, 194) solid;
 } 
-.article :hover
+.article :hover 
 {
     border: none;
-}
 
+}
 .img_article {width: 70%;}
 
 /* button */
@@ -408,8 +416,8 @@ hr {
 .product-checkout 
 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas: "v1 v1 v1 v1";
+    grid-template-columns: 6fr 3fr 3fr 3fr 1fr;
+    grid-template-areas: "v1 v1 v1 v1 v1";
 }
 
 .votrepanier
@@ -427,5 +435,48 @@ hr {
     border: 1px solid #ddd;
     appearance: none;
     
+}
+
+
+.button-acheter
+{
+    border: solid 1px;
+    font-size: large;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding: 0.6rem 2.3rem 0.6rem 2.3rem;
+    border-radius: 0.5rem;
+    visibility: hidden;
+    margin-bottom: 0.6rem;
+
+}
+
+
+
+
+.div-acheter
+{
+    text-align: center;
+}
+
+.product-desc
+{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
     
-    
+}
+.product-name 
+{
+    text-align: left;
+    margin-left: 5rem;
+
+}
+
+.prix
+{
+    text-align: right;
+    margin-right: 5rem;
+}

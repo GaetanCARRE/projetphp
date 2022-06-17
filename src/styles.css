@@ -411,6 +411,8 @@ hr {
 .payment-checkout
 {
     background-color: #ececec;
+    margin-bottom: 3rem;
+    border-radius: 1rem;
 }
 
 .product-checkout 
@@ -418,11 +420,15 @@ hr {
     display: grid;
     grid-template-columns: 6fr 3fr 3fr 3fr 1fr;
     grid-template-areas: "v1 v1 v1 v1 v1";
+    /* padding-top: 1rem; */
+    min-height: none;
+    
 }
 
 .votrepanier
 {
     grid-area: v1;
+    
 }
 
 .payment-checkbox 
@@ -434,6 +440,7 @@ hr {
     vertical-align: middle;
     border: 1px solid #ddd;
     appearance: none;
+    
     
 }
 
@@ -479,4 +486,32 @@ hr {
 {
     text-align: right;
     margin-right: 5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 3rem 3rem 3rem;
+    
+}
+
+input {
+    border-radius: 0.5rem;
+    height: 2rem;
+    border: 1px solid black;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 1rem;
+}
+
+.button-payment
+{
+    border: solid 1px;
+    font-size: large;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding: 0.6rem 2.3rem 0.6rem 2.3rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.6rem;
 }

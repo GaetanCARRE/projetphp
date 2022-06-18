@@ -21,6 +21,14 @@
                 {
                     
                     $_SESSION['user'] = $data['pseudo'];
+                    if($email== 'admin@gmail.com'){
+                        $_SESSION['admin']=true;
+                        header('Location:/website/src/index.php?p=admin');
+                    }
+                    else{
+                        $_SESSION['admin']=false;
+                        header('Location:/website/src/index.php');
+                    }
                     header('Location:/website/src/account/landing.php');
                 }
                 else header('Location:index.php?login_err=password');

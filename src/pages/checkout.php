@@ -1,6 +1,6 @@
 <div class="grid-container-checkout">
     <div class="product-checkout">
-        <h2 class="votrepanier">Votre panier</h2>
+        <div class="votrepanier"><h2>Votre panier</h2></div>
         <div>Produit</div>
         <div>Taille</div>
         <div>Quantitée</div>

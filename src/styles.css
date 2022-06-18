@@ -404,8 +404,8 @@ hr {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
-  margin-left: 4rem;
-  margin-right: 4rem;
+    margin-left: 4rem;
+    margin-right: 4rem;  
 }
 
 .payment-checkout
@@ -415,15 +415,14 @@ hr {
     border-radius: 1rem;
 }
 
-.product-checkout 
+ .product-checkout 
 {
     display: grid;
     grid-template-columns: 6fr 3fr 3fr 3fr 1fr;
     grid-template-areas: "v1 v1 v1 v1 v1";
-    /* padding-top: 1rem; */
-    min-height: none;
+    height: fit-content;  
     
-}
+} 
 
 .votrepanier
 {
@@ -510,7 +509,6 @@ input {
     font-size: large;
     background-color: white;
     color: black;
-    cursor: pointer;
     padding: 0.6rem 2.3rem 0.6rem 2.3rem;
     border-radius: 0.5rem;
     margin-bottom: 0.6rem;

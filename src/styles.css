@@ -39,6 +39,7 @@ body {
     grid-area: a2;
 }
 
+
 .a3 {
     grid-area: a3;
 }
@@ -48,10 +49,13 @@ body {
     /* margin-right: 1rem; */
 }
 
+.a5{
+    grid-area: a5;
+}
 .grid-container-header {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 8fr 1fr 1fr 1fr;
-    grid-template-areas: ". . . a1  a2 a3 a4";
+    grid-template-columns: 1fr 1fr 1fr 1fr 8fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: ". . . . a1  a5 a2 a3 a4";
 
 }
 

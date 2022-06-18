@@ -1,17 +1,35 @@
 <div class="grid-container-checkout">
     <div class="product-checkout">
         <div class="votrepanier"><h2>Votre panier</h2></div>
-        <div>Produit</div>
-        <div>Taille</div>
-        <div>Quantitée</div>
-        <div>Prix</div>
-        <div class="delete-checkout"></div>
-        <!-- A afficher en meme temps que produit taille quantitée prix  -->
-        <a href="">
-            <ion-icon name="close-circle-outline"></ion-icon>
-        </a>
+        <?php
+            foreach($_SESSION['panier'] AS $key) {
+               echo "<div>";
+               echo" <img src=". $key['image'] ." class='img_panier' width='30%'>";
+               echo" </div>";
+
+               echo "<div>";
+               echo $key['nom'] ;
+               echo" </div>";
+
+               echo "<div>";
+               echo $key['prix'];
+               echo" </div>";
+               
+              
+               ?>
+                
+                <div class="delete-checkout"></div>
+                 <!-- A afficher en meme temps que produit taille quantitée prix  -->
+                <a href="">
+                <ion-icon name="close-circle-outline"></ion-icon>
+                 </a>
         <!-- A afficher en meme temps que produit taille quantitée prix  -->
 
+               
+
+                <?php }?>
+                
+        
     </div>
 
     <div class="payment-checkout">

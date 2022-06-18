@@ -109,7 +109,7 @@ $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
 
                 /* echo $donnees['nom']; */
 
-                echo "<a href='www.google.fr'>";
+                //echo "<a href='www.google.fr'>";
                 echo "<div class= 'div-acheter'>";
                 echo "<button class='button-acheter'>Ajouter au Panier</button>";
                 echo "</a>";
@@ -168,4 +168,26 @@ $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
             }
         }
     }
+$('.button-acheter').click(function(){
+    var a=$(this).parent().parent();
+    var image=a.children().eq(0).attr('src');
+    var nom=a.children().children().eq(0).html();
+    var prix=a.children().children().eq(1).html();
+    var id=a.attr("id");
+    console.log(id);
+    alert('ok');
+
+    //Var data={image,nom,prix};
+//    alert($.session.get("0"));
+   $.post("panier.php",{image:image,nom:nom,prix:prix,id:id},function(data){
+    alert(data);
+   });
+    
+   
+    
+});
+
+  
+
+    
 </script>

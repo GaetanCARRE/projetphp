@@ -513,3 +513,9 @@ input {
     border-radius: 0.5rem;
     margin-bottom: 0.6rem;
 }
+
+/*************button supprimer*****************/
+
+.total{
+    background-color: red;
+}

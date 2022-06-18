@@ -1,10 +1,24 @@
+<?php
+if(isset($_GET['id'])){
+    foreach($_SESSION['panier'] AS $key=> $value) {
+        if($value['id']===$_GET['id']){
+         
+            unset($_SESSION['panier'][$key]);
+             break;
+    
+        }    
+    }
+    
+}   
+?>
+
 <div class="grid-container-checkout">
     <div class="product-checkout">
         <div class="votrepanier"><h2>Votre panier</h2></div>
         <?php
             foreach($_SESSION['panier'] AS $key) {
-               echo "<div>";
-               echo" <img src=". $key['image'] ." class='img_panier' width='30%'>";
+               echo "<div id=".$key['id']." >";
+               echo" <img src=". $key['image'] ." class='img_panier' width='20%'>";
                echo" </div>";
 
                echo "<div>";
@@ -20,8 +34,8 @@
                 
                 <div class="delete-checkout"></div>
                  <!-- A afficher en meme temps que produit taille quantitée prix  -->
-                <a href="">
-                <ion-icon name="close-circle-outline"></ion-icon>
+                <a href= "?p=checkout&id=<?php echo $key['id'] ?>">
+                <ion-icon class="delete" name="close-circle-outline"></ion-icon>
                  </a>
         <!-- A afficher en meme temps que produit taille quantitée prix  -->
 
@@ -66,4 +80,9 @@
             </form>
     </div>
 
+    <div class="total">
+                
+    </div>
+
 </div>
+

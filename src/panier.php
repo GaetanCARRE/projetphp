@@ -2,7 +2,7 @@
     //extract($_SESSION);
     session_start();
     $tab=array();
-    print_r($_POST);
+    //print_r($_POST);
     foreach($_POST AS $key=>$value) {
         $tab[$key]=$value;
       }
@@ -15,7 +15,7 @@
         $_SESSION['panier']=array();
         array_push($_SESSION['panier'],$tab);
     }
-    print_r($_SESSION);
+    //var_dump($_SESSION);
     /*foreach($_SESSION AS $key) {
        $key['image'];
        $key['nom'];

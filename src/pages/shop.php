@@ -98,10 +98,12 @@ $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
             $num_art = 0;
             for ($i; $i < $j and $i+intval($page)*9<sizeof($product); $i++) {
                 
-                echo "<div class='article'>";
+                echo "<div class='article' id=".$product[$i+intval($page)*9]['id'].">";
                 echo "<img src= ./{$product[$i+intval($page)*9]['image']} class='img_article'><br>"; 
                 echo "<div class ='product-desc'>";     //jy ajoute intval qui convertir string en int
-                echo  "<div class='product-name'>" . $product[$i+intval($page)*9]['nom'] . "</div><div class ='prix'>" . $product[$i+intval($page)*9]['prix'] .' € </div>'; //jy ajoute intval qui convertir string en int
+                echo  "<div class='product-name'>" . $product[$i+intval($page)*9]['nom'] . "</div>
+                       <div class ='prix'>" . $product[$i+intval($page)*9]['prix'] .' € </div>'; //jy ajoute intval qui convertir string en int
+                       
                 echo "</div>";
                 $num_art++;
 
@@ -111,8 +113,8 @@ $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
 
                 //echo "<a href='www.google.fr'>";
                 echo "<div class= 'div-acheter'>";
-                echo "<button class='button-acheter'>Ajouter au Panier</button>";
-                echo "</a>";
+                echo "<button class='button-acheter' >Ajouter au Panier</button>";
+               // echo "</a>";
                 echo "</div>";
                 echo "</div>";
             }
@@ -174,13 +176,11 @@ $('.button-acheter').click(function(){
     var nom=a.children().children().eq(0).html();
     var prix=a.children().children().eq(1).html();
     var id=a.attr("id");
-    console.log(id);
-    alert('ok');
-
+    
     //Var data={image,nom,prix};
 //    alert($.session.get("0"));
    $.post("panier.php",{image:image,nom:nom,prix:prix,id:id},function(data){
-    alert(data);
+  //  alert(data);
    });
     
    

@@ -405,7 +405,9 @@ hr {
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
     margin-left: 4rem;
-    margin-right: 4rem;  
+    margin-right: 4rem; 
+    grid-template-areas: "v1 v3 " /********** modif jy**************/
+                        "v2 v3"; 
 }
 
 .payment-checkout
@@ -439,6 +441,7 @@ hr {
     vertical-align: middle;
     border: 1px solid #ddd;
     appearance: none;
+    grid-area: v3;  /********** modif jy**************/
     
     
 }
@@ -469,7 +472,7 @@ hr {
 .product-desc
 {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 0.5fr 0.2fr;
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
     
@@ -484,7 +487,10 @@ hr {
 .prix
 {
     text-align: right;
-    margin-right: 5rem;
+}
+.euros{
+    margin-right: 80px;
+    margin-left: 5px;
 }
 
 form {
@@ -516,6 +522,20 @@ input {
 
 /*************button supprimer*****************/
 
+
+
+.total-checkout{
+    width: 600px;
+    background-color: #ececec;
+    border-radius: 1rem;
+
+    margin-left: 50px;
+    margin-top: 50px;
+    grid-area: v2 ; /********** modif jy**************/
+}
 .total{
-    background-color: red;
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    grid-template-areas: "v1";
 }

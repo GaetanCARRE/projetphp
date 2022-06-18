@@ -27,7 +27,7 @@ if(isset($_GET['id'])){
 
                echo "<div>";
                echo $key['prix'];
-               echo" </div>";
+               echo" €</div>";
                
               
                ?>
@@ -80,9 +80,30 @@ if(isset($_GET['id'])){
             </form>
     </div>
 
+    <?php
+        function Totalprix($id){
+            $somme=0;
+            foreach($id as $key=> $value){
+                $somme+=intval($value['prix']);
+            }
+        return $somme;
+        }
+
+        $Total=Totalprix($_SESSION['panier']);
+    ?>
+
+    <div class="total-checkout">
+        <div class="total">
+           <h3> Produit</h3>   <h3><?php echo $Total?> €</h3>
+           <h3>Livraison</h3>  <h3>10 €</h3>
+            
+            
+        </div>
+    <hr >
     <div class="total">
-                
-    </div>
+    <h2>Total: </h2>  <h2><?php echo $Total+10?> €</h2>
+</div>
+</div>
 
 </div>
 

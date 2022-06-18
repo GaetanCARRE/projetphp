@@ -102,7 +102,7 @@ $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
                 echo "<img src= ./{$product[$i+intval($page)*9]['image']} class='img_article'><br>"; 
                 echo "<div class ='product-desc'>";     //jy ajoute intval qui convertir string en int
                 echo  "<div class='product-name'>" . $product[$i+intval($page)*9]['nom'] . "</div>
-                       <div class ='prix'>" . $product[$i+intval($page)*9]['prix'] .' € </div>'; //jy ajoute intval qui convertir string en int
+                       <div class ='prix'>" . $product[$i+intval($page)*9]['prix'] ." </div> <span class='euros'>€ </span>"; //jy ajoute intval qui convertir string en int
                        
                 echo "</div>";
                 $num_art++;
@@ -175,6 +175,7 @@ $('.button-acheter').click(function(){
     var image=a.children().eq(0).attr('src');
     var nom=a.children().children().eq(0).html();
     var prix=a.children().children().eq(1).html();
+    console.log(prix);
     var id=a.attr("id");
     
     //Var data={image,nom,prix};

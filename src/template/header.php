@@ -26,6 +26,9 @@
 
         <div class="grid-container-header">
             <h1 class="header_h1 a1">F&S</h1>
+            <a href="/website/src/account/deconnexion.php" class="a5" id="logout">
+                <ion-icon name="log-out-outline" class="logo_header"></ion-icon> 
+            </a>
 
             <a href="/website/src/account/index.php" class="a2" id="open">
                 <ion-icon name="person-circle-outline" class="logo_header"></ion-icon>

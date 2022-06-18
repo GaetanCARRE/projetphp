@@ -16,7 +16,10 @@ $page = "home";
 if(isset($_GET['p'])) {
     $page = trim($_GET['p']);
 }
-
+if($_SESSION['admin']===true)
+{
+    $page = 'admin';
+}
 switch($page) {
 
     case "home":

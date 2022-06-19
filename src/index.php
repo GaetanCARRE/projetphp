@@ -34,7 +34,7 @@ switch($page) {
         require_once("./pages/checkout.php");
         break;
     case "admin":
-        require_once("./pages/admin.php");
+        require_once("./admin/admin.php");
         break;
         
     default:

@@ -86,7 +86,7 @@ function afficherV2($tri = "asc", $db, $cat = null,$Prix_min,$Prix_max)
     }
 
     $res = $db->prepare("
-      SELECT *, product.categorie as categorie
+      SELECT *, product.id as id, product.categorie as categorie
       FROM product 
       LEFT JOIN categorie ON product.categorie = categorie.id
        where prix >=".$Prix_min." and prix<=".$Prix_max. $categorie. "

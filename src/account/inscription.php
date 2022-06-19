@@ -73,7 +73,7 @@
       <form action="inscription_traitement.php" method="post">
         
           <input type="text" name="pseudo" placeholder="Username" required />
-          <input type="email" name="email" placeholder="Email" required />
+          <input type="text" name="email" placeholder="Email" required />
           <input type="password" name="password" placeholder="Password" required />
           <input type="password" name="password_conf" placeholder="Confirm Password" required />
           <button type="submit">Inscription</button>

@@ -529,7 +529,7 @@ hr {
 {
     padding-top: 7rem;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 2rem;
     margin-left: 4rem;
     margin-right: 4rem; 

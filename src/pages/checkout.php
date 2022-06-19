@@ -47,7 +47,7 @@ if (isset($_GET['id'])) {
     </div>
 
     <div class="payment-checkout">
-        <form class='checkout-form' action="" method="post">
+        <form class='checkout-form' action="./app/checkout_functions.php" method="post">
             <h2>Paiement</h2>
             <!-- <div>Méthode de paiement
                     <br>
@@ -57,27 +57,69 @@ if (isset($_GET['id'])) {
                 </div> -->
 
             Nom sur la carte
-            <input class="checkout-input" name="card_name" placeholder="Prenom Nom" required />
+            <input class="checkout-input" type="text"name="cardName" placeholder="Prenom Nom" required />
             Numero de carte
-            <input class="checkout-input" name="card num" placeholder="Numero de la carte" required />
+            <input class="checkout-input" type="number" name="numCard" placeholder="Numero de la carte" required />
             Date d'expiration
-            <input class="checkout-input" name="expiration_date" placeholder="MM/YY" required />
+            <input class="checkout-input" type ="month" name="expirationDate" placeholder="MMYY" required />
             CVV
-            <input class="checkout-input" name="cvv" placeholder="cvv" required />
+            <input class="checkout-input" type="number" name="cvv" placeholder="cvv" required />
 
 
             <h2>Livraison</h2>
 
 
             Adresse
-            <input class="checkout-input" type="adresse" name="adresse" required />
+            <input class="checkout-input" type="text" name="address" required />
             Ville
-            <input class="checkout-input" type="Ville" name="Ville" placeholder="" required />
+            <input class="checkout-input" type="text" name="city" placeholder="" required />
             Code Postal
-            <input class="checkout-input" type="CodePostal" name="CodePostal" placeholder="" required />
+            <input class="checkout-input" type="number" name="zipCode" placeholder="" required />
 
-            <button class='button-payment' type="submit" className="button">Payer</button>
+            <button class='button-payment' type="submit" >Payer</button>
         </form>
+        <?php
+        if (isset($_GET['payment']))
+        {
+            $err = htmlspecialchars($_GET['payment']);
+            switch($err)
+            {
+                case 'success':
+                ?>
+                    <div>
+                        <strong>Paiement réussie !</strong> 
+                    </div>
+                <?php
+                break;
+                
+                case 'zip':
+                    ?>
+                        <div>
+                            <strong>Erreur</strong> code postal invalide
+                        </div>
+                    <?php
+                    break;
+                
+                case 'cvv':
+                    ?>
+                        <div>
+                            <strong>Erreur</strong> cvv invalide
+                        </div>
+                    <?php
+                    break;
+
+                case 'numcard':
+                ?>
+                    <div>
+                        <strong>Erreur</strong> numéro de carte invalide
+                    </div>
+                <?php
+                break;
+                
+            }
+            
+        }
+        ?>
     </div>
 
     <?php

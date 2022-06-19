@@ -402,20 +402,11 @@ hr {
 
 /* ---------------------------------checkout------------------------------------------ */
 
-.grid-container-checkout
-{
-    padding-top: 7rem;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    margin-left: 4rem;
-    margin-right: 4rem; 
-    grid-template-areas: "v1 v3 " /********** modif jy**************/
-                        "v2 v3"; 
-}
+
 
 .payment-checkout
 {
+    grid-area: t3;
     background-color: #ececec;
     margin-bottom: 3rem;
     border-radius: 1rem;
@@ -426,7 +417,8 @@ hr {
     display: grid;
     grid-template-columns: 6fr 3fr 3fr 3fr 1fr;
     grid-template-areas: "v1 v1 v1 v1 v1";
-    height: fit-content;  
+    height: fit-content;
+    grid-area: t1;  
     
 } 
 
@@ -445,7 +437,7 @@ hr {
     vertical-align: middle;
     border: 1px solid #ddd;
     appearance: none;
-    grid-area: v3;  /********** modif jy**************/
+      /********** modif jy**************/
     
     
 }
@@ -497,20 +489,29 @@ hr {
     margin-left: 5px;
 }
 
-form {
+.checkout-form {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     padding: 1rem 3rem 3rem 3rem;
+    font-size: 12px;
+    color: rgb(126, 124, 124);
     
 }
 
-input {
+.checkout-form h2 {
+    font-size: 30px;
+    color: black;
+}
+
+.checkout-input {
     border-radius: 0.5rem;
     height: 2rem;
-    border: 1px solid black;
+    border: 0;
     font-family: 'Roboto', sans-serif;
     padding-left: 1rem;
+    color: black;
+    
 }
 
 .button-payment
@@ -524,22 +525,35 @@ input {
     margin-bottom: 0.6rem;
 }
 
+.grid-container-checkout
+{
+    padding-top: 7rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    margin-left: 4rem;
+    margin-right: 4rem; 
+    grid-template-areas: "t1 t3"
+                         "t2 t3"; /********** modif jy**************/
+                          
+}
+
 /*************button supprimer*****************/
 
 
 
 .total-checkout{
-    width: 600px;
+    /* width: 600px; */
     background-color: #ececec;
     border-radius: 1rem;
 
     margin-left: 50px;
     margin-top: 50px;
-    grid-area: v2 ; /********** modif jy**************/
+    grid-area: t2; /********** modif jy**************/
 }
 .total{
     margin-left: 20px;
     display: grid;
     grid-template-columns: 2fr 1fr; 
-    grid-template-areas: "v1";
+    
 }

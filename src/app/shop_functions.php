@@ -3,102 +3,88 @@
 
 function afficherProduct($id, $db)
 {
- 
-    $res = $db->prepare("SELECT * FROM product WHERE id=?");
 
-    $res->execute(array($id));
+  $res = $db->prepare("SELECT * FROM product WHERE id=?");
 
-    $data = $res->fetchAll(PDO::FETCH_OBJ);
+  $res->execute(array($id));
 
-    return $data;
+  $data = $res->fetchAll(PDO::FETCH_OBJ);
 
-    $res->closeCursor();
+  return $data;
+
+  $res->closeCursor();
 }
 
 function ajouter($image, $nom, $prix, $taille)
 {
-    $res = $db->prepare("INSERT INTO product (image, nom, prix, taille) VALUES (?, ?, ?, ?)");
+  $res = $db->prepare("INSERT INTO product (image, nom, prix, taille) VALUES (?, ?, ?, ?)");
 
-    $res->execute(array($image, $nom, $prix, $taille));
+  $res->execute(array($image, $nom, $prix, $taille));
 
-    $res->closeCursor();
+  $res->closeCursor();
 }
 
 function afficher($tri = "asc", $db, $cat = null)
 {
-    
-    
-    if ($tri == "asc") {
-      $text = "nom ASC";
-    }
-    else if ($tri == "desc") {
-      $text = "nom DESC";
-    }
-    else if ($tri == "prix_asc") {
-      $text = "prix ASC";
-    }
-    else if ($tri == "prix_desc") {
-      $text = "prix DESC";
-    }
-    $categorie = "";
-    if($cat != null)
-    {
-      $categorie = "WHERE product.categorie =".$cat;
-    }
 
-    $res = $db->prepare("
+
+  if ($tri == "asc") {
+    $text = "nom ASC";
+  } else if ($tri == "desc") {
+    $text = "nom DESC";
+  } else if ($tri == "prix_asc") {
+    $text = "prix ASC";
+  } else if ($tri == "prix_desc") {
+    $text = "prix DESC";
+  }
+  $categorie = "";
+  if ($cat != null) {
+    $categorie = "WHERE product.categorie =" . $cat;
+  }
+
+  $res = $db->prepare("
       SELECT *, product.categorie as categorie
       FROM product 
       LEFT JOIN categorie ON product.categorie = categorie.id
-      ".$categorie."
-      ORDER BY ".$text);
+      " . $categorie . "
+      ORDER BY " . $text);
 
-    $res->execute();
+  $res->execute();
 
-    $data = $res->fetchAll(PDO::FETCH_ASSOC);  
-    return $data;
-
-  
-  
+  $data = $res->fetchAll(PDO::FETCH_ASSOC);
+  return $data;
 }
 
 
-function afficherV2($tri = "asc", $db, $cat = null,$Prix_min,$Prix_max)
+function afficherV2($tri = "asc", $db, $cat = null, $Prix_min, $Prix_max)
 {
-    
-    
-    if ($tri == "asc") {
-      $text = "nom ASC";
-    }
-    else if ($tri == "desc") {
-      $text = "nom DESC";
-    }
-    else if ($tri == "prix_asc") {
-      $text = "prix ASC";
-    }
-    else if ($tri == "prix_desc") {
-      $text = "prix DESC";
-    }
-    $categorie = "";
-    if($cat != null)
-    {
-      $categorie = " and product.categorie =".$cat;
-    }
 
-    $res = $db->prepare("
+
+  if ($tri == "asc") {
+    $text = "nom ASC";
+  } else if ($tri == "desc") {
+    $text = "nom DESC";
+  } else if ($tri == "prix_asc") {
+    $text = "prix ASC";
+  } else if ($tri == "prix_desc") {
+    $text = "prix DESC";
+  }
+  $categorie = "";
+  if ($cat != null) {
+    $categorie = " and product.categorie =" . $cat;
+  }
+
+  $res = $db->prepare("
       SELECT *, product.id as id, product.categorie as categorie
       FROM product 
       LEFT JOIN categorie ON product.categorie = categorie.id
-       where prix >=".$Prix_min." and prix<=".$Prix_max. $categorie. "
-      ORDER BY ".$text);
+       where prix >=" . $Prix_min . " and prix<=" . $Prix_max . $categorie . "
+      ORDER BY " . $text);
 
-    $res->execute();
+  $res->execute();
 
-    $data = $res->fetchAll(PDO::FETCH_ASSOC);  
-    return $data;
-
-  
-  
+  $data = $res->fetchAll(PDO::FETCH_ASSOC);
+  return $data;
 }
 
 
@@ -113,9 +99,19 @@ function supprimer($id)
   }
 }
 
-function getCategories() {
- //$req = $db->prepare("SELECT * FROM categorie");
+function getCategories()
+{
+  //$req = $db->prepare("SELECT * FROM categorie");
 
 
 }
 
+
+function Totalprix($id)
+{
+  $somme = 0;
+  foreach ($id as $key => $value) {
+    $somme += intval($value['prix']);
+  }
+  return $somme;
+}

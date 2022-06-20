@@ -2,6 +2,7 @@
 if (isset($_GET['id'])) {
     foreach ($_SESSION['panier'] as $key => $value) {
         if ($value['id'] === $_GET['id']) {
+
             unset($_SESSION['panier'][$key]);
             break;
         }
@@ -15,7 +16,6 @@ if (isset($_GET['id'])) {
             <h2>Votre panier</h2>
         </div>
         <?php
-        /* if(isset($_SESSION['panier'])){ */
         foreach ($_SESSION['panier'] as $key) {
             echo "<div id=" . $key['id'] . " >";
             echo " <img src=" . $key['image'] . " class='img_panier' width='20%'>";
@@ -35,13 +35,13 @@ if (isset($_GET['id'])) {
             <div class="delete-checkout"></div>
             <!-- A afficher en meme temps que produit taille quantitée prix  -->
             <a href="?p=checkout&id=<?php echo $key['id'] ?>">
-                <ion-icon class="delete" onClick name="close-circle-outline"></ion-icon>
+                <ion-icon class="delete" name="close-circle-outline"></ion-icon>
             </a>
             <!-- A afficher en meme temps que produit taille quantitée prix  -->
 
 
 
-        <?php }/* } */ ?>
+        <?php } ?>
 
 
     </div>
@@ -132,14 +132,7 @@ if (isset($_GET['id'])) {
     </div>
 
     <?php
-    /* function Totalprix($id)
-    {
-        $somme = 0;
-        foreach ($id as $key => $value) {
-            $somme += intval($value['prix']);
-        }
-        return $somme;
-    } */
+    
 
     $Total = Totalprix($_SESSION['panier']);
     ?>
@@ -150,16 +143,14 @@ if (isset($_GET['id'])) {
             <h3><?php echo $Total ?> €</h3>
             <h3>Livraison</h3>
             <h3>10 €</h3>
-
+            
 
         </div>
-        <hr>
+
         <div class="total">
             <h2>Total: </h2>
             <h2><?php echo $Total + 10 ?> €</h2>
         </div>
-
     </div>
 
 </div>
-

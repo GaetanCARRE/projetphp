@@ -15,7 +15,7 @@ if (isset($_GET['id'])) {
             <h2>Votre panier</h2>
         </div>
         <?php
-        /* if(isset($_SESSION['panier'])){ */
+        if(isset($_SESSION['panier'])){
         foreach ($_SESSION['panier'] as $key) {
             echo "<div id=" . $key['id'] . " >";
             echo " <img src=" . $key['image'] . " class='img_panier' width='20%'>";
@@ -41,7 +41,7 @@ if (isset($_GET['id'])) {
 
 
 
-        <?php }/* } */ ?>
+        <?php }} ?>
 
 
     </div>
@@ -132,14 +132,7 @@ if (isset($_GET['id'])) {
     </div>
 
     <?php
-    /* function Totalprix($id)
-    {
-        $somme = 0;
-        foreach ($id as $key => $value) {
-            $somme += intval($value['prix']);
-        }
-        return $somme;
-    } */
+
 
     $Total = Totalprix($_SESSION['panier']);
     ?>

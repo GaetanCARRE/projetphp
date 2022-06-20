@@ -50,6 +50,17 @@
             <a href="./?p=checkout" class="a4">
                 <ion-icon name="cart-outline" class="logo_header"></ion-icon>
             </a>
+            <span id="panier_counter" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+               <?php $nb_article=count($_SESSION['panier']);
+                    if (isset($_GET['id'])) {
+                        $nb_article-=1;
+                    }
+                    if($nb_article>0){
+                        echo $nb_article;
+                     }
+                     
+               ?>
+                    </span>
         </div>
     </header>
 

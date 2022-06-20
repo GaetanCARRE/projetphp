@@ -181,7 +181,12 @@ $('.button-acheter').click(function(){
     //Var data={image,nom,prix};
 //    alert($.session.get("0"));
    $.post("panier.php",{image:image,nom:nom,prix:prix,id:id},function(data){
-  //  alert(data);
+  //window.location.replace("?p=shop");
+    var nb_panier= parseInt($("#panier_counter").text());
+    if(isNaN(nb_panier)  ){
+        nb_panier=0;
+    }
+    $("#panier_counter").text(nb_panier+1);
    });
     
    

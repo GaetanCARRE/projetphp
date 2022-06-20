@@ -121,6 +121,15 @@ h3 {
     position: relative;
 }
 
+#panier_counter{
+    position: absolute;
+top: 20px; right: 25px;
+background-color: red;
+border-radius: 35%;
+width:15px;
+font-size: small;
+}
+
 /* ---------------------------------pagination------------------------------------ */
 .center {
     text-align: center;

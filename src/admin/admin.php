@@ -11,7 +11,10 @@ if(isset($_GET['change']))
 $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
 $id;
 echo "<br><br><br><br><br>";
+?>
 
+<div>
+<?php
 
 echo "<table>";
 echo "<tr>";
@@ -93,4 +96,28 @@ foreach($product as $prod):
 endforeach
 
 ?>
+
+
+
+
 </table>
+
+</div>
+<div>
+<form>
+<input type="radio" id="huey" name="drone" value="huey"
+             checked>
+      <label for="huey">Huey</label>
+    
+
+    
+      <input type="radio" id="dewey" name="drone" value="dewey">
+      <label for="dewey">Dewey</label>
+    
+
+    
+      <input type="radio" id="louie" name="drone" value="louie">
+      <label for="louie">Louie</label>
+    
+</form>
+</div>

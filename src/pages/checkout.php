@@ -155,6 +155,7 @@ if (isset($_GET['id'])) {
             <h2>Total: </h2>
             <h2><?php echo $Total + 10 ?> €</h2>
         </div>
+
     </div>
 
 </div>

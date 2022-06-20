@@ -556,8 +556,8 @@ hr {
     background-color: #ececec;
     border-radius: 1rem;
 
-    margin-left: 50px;
-    margin-top: 50px;
+    /*margin-top: 123px;*/
+    
     grid-area: t2; /********** modif jy**************/
 }
 .total{
@@ -566,3 +566,4 @@ hr {
     grid-template-columns: 2fr 1fr; 
     
 }
+

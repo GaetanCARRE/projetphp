@@ -2,6 +2,7 @@
     session_start();
     require_once '../config/config.php';
     echo('test');
+    
 
     if(isset($_POST['email']) && isset($_POST['password']))
     {
@@ -21,6 +22,7 @@
                 {
                     
                     $_SESSION['user'] = $data['pseudo'];
+                    $_SESSION['connected']=true;
                     if($email== 'admin@gmail.com'){
                         $_SESSION['admin']=true;
                         header('Location:/website/src/index.php?p=admin');

@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once('./config/config.php');
 $user = $_SESSION['user'];
 if($user == false)

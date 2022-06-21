@@ -33,11 +33,9 @@ if (isset($_GET['id'])) {
         ?>
 
             <div class="delete-checkout"></div>
-            <!-- A afficher en meme temps que produit taille quantitée prix  -->
             <a href="?p=checkout&id=<?php echo $key['id'] ?>">
                 <ion-icon class="delete" onClick name="close-circle-outline"></ion-icon>
             </a>
-            <!-- A afficher en meme temps que produit taille quantitée prix  -->
 
 
 
@@ -49,13 +47,7 @@ if (isset($_GET['id'])) {
     <div class="payment-checkout">
         <form class='checkout-form' action="./app/checkout_functions.php" method="post">
             <h2>Paiement</h2>
-            <!-- <div>Méthode de paiement
-                    <br>
-                    <input type="checkbox" class="payment-checkbox"> <label>Visa</label><br>
-                    <input type="checkbox" class="payment-checkbox"> <label>MasterCard</label>
-
-                </div> -->
-
+            
             Nom sur la carte
             <input class="checkout-input" type="text"name="cardName" placeholder="Prenom Nom" required />
             Numero de carte
@@ -141,8 +133,12 @@ if (isset($_GET['id'])) {
 
     <?php
 
-
+   if(isset($_SESSION['panier'])){
     $Total = Totalprix($_SESSION['panier']);
+    }
+    else{
+        $Total=0;
+    }
     ?>
 
     <div class="total-checkout">

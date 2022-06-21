@@ -1,4 +1,6 @@
 <?php
+
+
 $ordre = 'asc';
 $cat = null;
 $page = 0;
@@ -121,13 +123,8 @@ endforeach
     
 
     <form class='checkout-form' action='./admin/appliquer_filtre.php' method='POST'>
-            <h2>Type de Filttre</h2>
-            <!-- <div>Méthode de paiement
-                    <br>
-                    <input type="checkbox" class="payment-checkbox"> <label>Visa</label><br>
-                    <input type="checkbox" class="payment-checkbox"> <label>MasterCard</label>
-
-                </div> -->
+            <h2>Type de Filtre</h2>
+            
 
             Nom croissant
             <input type="radio"  name="filtre" value="asc">
@@ -154,10 +151,7 @@ endforeach
                 ?>
         <script>
  
-          /*  setTimeout(function() {
-             $('#filter_message').hide();
-            },2000);*/
-  
+          
  
         </script>
          <div class ="success-msg" id="filter_message">

@@ -104,7 +104,6 @@ function supprimer($id)
 
 function getCategories()
 {
-  //$req = $db->prepare("SELECT * FROM categorie");
 
 
 }
@@ -113,9 +112,10 @@ function getCategories()
 function Totalprix($id)
 {
   $somme = 0;
+  if($id!=NULL){
   foreach ($id as $key => $value) {
     $somme += intval($value['prix']);
-  }
+  }}
   return $somme;
 }
 

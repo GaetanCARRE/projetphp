@@ -30,39 +30,55 @@
                 <ion-icon name="log-out-outline" class="logo_header"></ion-icon> 
             </a>
 
-            <a href="/website/src/account/index.php" class="a2" id="open">
-                <ion-icon name="person-circle-outline" class="logo_header"></ion-icon>
-            </a>
-            <!-- <div class="flex-container">
-<div class="modal-container">
-<div class="modal">
-    <h1>le modal marche</h1>
-
-    <button id="close">
-        close me
-    </button>
-</div>
-</div>
-</div> -->
+            <?php
+            if(isset($_SESSION['connected'])):
+                if($_SESSION['connected']):
+                    ?>
+                    <a href="./?p=commandes" class="a2" id="open">
+                    <ion-icon name="person-circle-outline" class="logo_header"></ion-icon>
+                </a>
+                <?php
+                
+                else:
+                ?>
+                <a href="/website/src/account/index.php" class="a2" id="open">
+                 <ion-icon name="person-circle-outline" class="logo_header"></ion-icon>
+                 </a>
+                <?php
+                
+                endif;
+                endif;
+                ?>
+                    
             <a href="./" class="a3">
                 <ion-icon name="home-outline" class="logo_header"></ion-icon>
             </a>
-            <a href="./?p=checkout" class="a4">
-                <ion-icon name="cart-outline" class="logo_header"></ion-icon>
-            </a>
-            <span id="panier_counter" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-               <?php 
-               if (isset($_SESSION['panier'])) {
-               $nb_article=count($_SESSION['panier']);
-                    if (isset($_GET['id'])) {
-                        $nb_article-=1;
-                    }
-                    if($nb_article>0){
-                        echo $nb_article;
-                     }
-                    }
-               ?>
+            <?php
+                
+                if(!isset($_SESSION['admin'])|| $_SESSION['admin']==false){
+                    
+                        ?>
+                        <a href="./?p=checkout" class="a4">
+                         <ion-icon name="cart-outline" class="logo_header"></ion-icon>
+                         </a>
+                         <span id="panier_counter" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                     <?php 
+                         if (isset($_SESSION['panier'])) {
+                            $nb_article=count($_SESSION['panier']);
+                             if (isset($_GET['id'])) {
+                                 $nb_article-=1;
+                             }
+                              if($nb_article>0){
+                                 echo $nb_article;
+                              }
+                         }
+                            ?>
                     </span>
+                     <?php
+                    
+                }
+             ?>
+            
         </div>
     </header>
 

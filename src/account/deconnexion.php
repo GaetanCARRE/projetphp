@@ -1,4 +1,7 @@
 <?php
     session_start();
-    session_destroy();
+    $_SESSION['user']=NULL;
+    $_SESSION['connected']=false;
+    $_SESSION['admin']=false;
+
     header('Location:/website/src/index.php');

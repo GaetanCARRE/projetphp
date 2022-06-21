@@ -1,5 +1,4 @@
 <?php
-    // session_start();
     $db =require_once('../config/config.php');
 
    

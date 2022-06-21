@@ -1,5 +1,13 @@
 <!--  -->
+<?php
+session_start();
+if(isset($_SESSION['connected'])){
+  if( $_SESSION['connected']==true){
+    header('Location:/website/src/index.php');
+  }
+}
 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +17,7 @@
   </head>
 
   <body>
-    <
+    
     <div class="formulaire">
       <h1>Connexion</h1>
     <?php
@@ -47,10 +55,8 @@
         ?>
       <form action="connexion.php" method="post">
         
-          <!-- <input type="text" name="pseudo" placeholder="Username" required /> -->
           <input type="email" name="email" placeholder="Email" required />
           <input type="password" name="password" placeholder="Password" required />
-          <!-- <input id="passwd" name="user_passconf" placeholder="Confirm Password" required /> -->
           <button type="submit" className="button">Connexion</button>
 
           <a href=inscription.php>S'inscrire</a> 

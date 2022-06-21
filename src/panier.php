@@ -16,11 +16,7 @@
         array_push($_SESSION['panier'],$tab);
     }
     var_dump($_SESSION);
-    /*foreach($_SESSION AS $key) {
-       $key['image'];
-       $key['nom'];
-       $key['prix'];
-      }*/
+  
 
    
 ?>

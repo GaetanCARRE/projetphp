@@ -1,9 +1,5 @@
 <?php
-/*
-if(isset( $_SESSION['filtre'])){
-    $ordre=$_SESSION['filtre'];
-}
-var_dump($_SESSION);*/
+
 
 require('./admin/appliquer_filtre.php');
 $ordre=file_get_contents('./admin/ordre.txt');
@@ -108,21 +104,18 @@ $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
                 
                 echo "<div class='article' id=".$product[$i+intval($page)*9]['id'].">";
                 echo "<img src= ./{$product[$i+intval($page)*9]['image']} class='img_article'><br>"; 
-                echo "<div class ='product-desc'>";     //jy ajoute intval qui convertir string en int
+                echo "<div class ='product-desc'>";     
                 echo  "<div class='product-name'>" . $product[$i+intval($page)*9]['nom'] . "</div>
-                       <div class ='prix'>" . $product[$i+intval($page)*9]['prix'] ." </div> <span class='euros'>€ </span>"; //jy ajoute intval qui convertir string en int
+                       <div class ='prix'>" . $product[$i+intval($page)*9]['prix'] ." </div> <span class='euros'>€ </span>"; 
                        
                 echo "</div>";
                 $num_art++;
 
 
 
-                /* echo $donnees['nom']; */
-
-                //echo "<a href='www.google.fr'>";
+                
                 echo "<div class= 'div-acheter'>";
                 echo "<button class='button-acheter' >Ajouter au Panier</button>";
-               // echo "</a>";
                 echo "</div>";
                 echo "</div>";
             }
@@ -156,14 +149,12 @@ $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
 
 ?>
 <script>
-    /* When the user clicks on the button, 
-    toggle between hiding and showing the dropdown content */
+    
     function myFunction() {
         document.getElementById("myDropdown").style.display="block";
         content.classList.toogle("show");
             }
 
-    // Close the dropdown if the user clicks outside of it
     window.onclick = function(event) {
         if (event.target.matches('.dropbtn')) {
 
@@ -187,10 +178,8 @@ $('.button-acheter').click(function(){
     console.log(prix);
     var id=a.attr("id");
     
-    //Var data={image,nom,prix};
-//    alert($.session.get("0"));
+    
    $.post("panier.php",{image:image,nom:nom,prix:prix,id:id},function(data){
-  //window.location.replace("?p=shop");
     var nb_panier= parseInt($("#panier_counter").text());
     if(isNaN(nb_panier)  ){
         nb_panier=0;

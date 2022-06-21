@@ -16,7 +16,7 @@ $page = "home";
 if(isset($_GET['p'])) {
     $page = trim($_GET['p']);
 }
-if(isset($_SESSION['admin'])){ //ajout jy pour eviter le cas ou la clé n'est pas reconnu*/
+if(isset($_SESSION['admin'])){ 
 if($_SESSION['admin']===true)
 {
     $page = 'admin';

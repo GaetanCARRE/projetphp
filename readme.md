@@ -43,4 +43,5 @@ Compte admin :
     mdp: admin
     
 Compte utilisateur :
-
+    email: altan@gmail.com
+    mdp: altan

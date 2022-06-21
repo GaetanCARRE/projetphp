@@ -20,21 +20,9 @@ Description du site:
 
 -Il y a possibilité de ordonner cette liste par prix et nom , ou sinon sélectionner la catégorie de l’article ou par tranche de prix via le bouton "FILTRES".
 
+-En accédant au panier vous aurez accès à vos articles, vous pourrez les supprimer puis procéder au paiement.
+
 -En se connectant avec le compte admin (dont les identifiants sont ci-dessous) on peut ajouter un article, voir ou changer la quantité du produit et changer le prix de ce dernier.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

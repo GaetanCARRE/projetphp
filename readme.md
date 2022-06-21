@@ -14,4 +14,26 @@ Bonjour voici quelques aides pour vous faciliter l'accès à notre site:
 
 Description du site:
 
--Sur notre header nous pouvons retrouver à partir de la gauche un bouton pour se déconnecter, se connecter, 
+-Sur notre header nous pouvons retrouver à partir de la gauche un bouton pour se déconnecter, se connecter, pour 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+auteurs:
+BENABDELLAH Djelel
+BUISSERETH Jean-Yves
+CARRÉ Gaetän
+DURAN Altan
+BANANI Anas

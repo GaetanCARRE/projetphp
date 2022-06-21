@@ -154,9 +154,9 @@ endforeach
                 ?>
         <script>
  
-            setTimeout(function() {
+          /*  setTimeout(function() {
              $('#filter_message').hide();
-            },2000);
+            },2000);*/
   
  
         </script>

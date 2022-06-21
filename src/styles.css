@@ -621,5 +621,17 @@ hr {
     padding-top: 5px;
     margin-left: 120px;
     border-radius: 30px;
+    animation: fadein 2s;
     text-align: center;
+    opacity:0;
+
+}
+@keyframes 
+    fadein {
+        from {
+            opacity:1;
+        }
+        to {
+            opacity:0;
+        }
   }

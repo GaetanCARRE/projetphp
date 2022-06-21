@@ -55,10 +55,10 @@ $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
             <button onclick="myFunction()" class="dropbtn">FILTRES</button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="?p=shop">Reinitialiser</a>
-                <a href="?p=shop&o=prix_asc&c=<?php echo $cat; ?>&pa=<?php echo $page;?>">Prix croissant</a>
-                <a href="?p=shop&o=prix_desc&c=<?php echo $cat; ?>&pa=<?php echo $page;?>">Prix decroissant</a>
-                <a href="?p=shop&o=asc&c=<?php echo $cat; ?>&pa=<?php echo $page?>;">Nom croissant</a>
-                <a href="?p=shop&o=desc&c=<?php echo $cat; ?>&pa=<?php echo $page?>;">Nom decroissant</a>
+                <a href="?p=shop&o=prix_asc&c=<?php echo $cat; ?>&pa=0">Prix croissant</a>   <!-- pa =0 by altan-->
+                <a href="?p=shop&o=prix_desc&c=<?php echo $cat; ?>&pa=0">Prix decroissant</a>
+                <a href="?p=shop&o=asc&c=<?php echo $cat; ?>&pa=0">Nom croissant</a>
+                <a href="?p=shop&o=desc&c=<?php echo $cat; ?>&pa=0">Nom decroissant</a>
 
                 <div>
                     <h3>Categorie</h3>
@@ -153,7 +153,7 @@ $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
     </div>
 </div>
 <?php
-echo $ordre;
+
 ?>
 <script>
     /* When the user clicks on the button, 

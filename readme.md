@@ -16,7 +16,7 @@ Bonjour voici quelques aides pour vous faciliter l'accès à notre site:
 
 -L'extraire et placer le dossier dans un serveur local
 
--Créer la base de données projet et importer le fichier projet.sql afin d'initialiser correctement la BDD. Placer la BDD dans src/config/config.php.
+-Créer la base de données "projet" et importer le fichier projet.sql afin d'initialiser correctement la BDD. Placer la BDD dans src/config/config.php.
 
 -Ouvrir le navigateur et se placer dans le src (localhost/website/src). Vous arriverez sur notre page d'accueil.
 

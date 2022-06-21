@@ -8,6 +8,7 @@
         $nom = htmlspecialchars($_POST['nom']);
         $prix = htmlspecialchars($_POST['prix']);
         $quantite = htmlspecialchars($_POST['quantity']);
+        $categorie = htmlspecialchars($_POST['categorie']);
         $id = $_POST['id']+20;
          
        
@@ -26,7 +27,7 @@
                 if(strlen($nom) <= 100)
                 {
                     $insert = $db->prepare('INSERT INTO product(id,nom,prix,marque,image,taille,categorie, quantite) VALUES (?,?,?,?,?,?,?,?)');
-                    $insert-> execute([$id,$nom,$prix,"none",$image,"M",1,$quantite]);
+                    $insert-> execute([$id,$nom,$prix,"none",$image," ",$categorie,$quantite]);
                     header("Location:../index.php?id=$id");
                 }
                 //else {header('Location:inscription.php?reg_err=email_length');die();}

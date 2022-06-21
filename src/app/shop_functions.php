@@ -115,3 +115,4 @@ function Totalprix($id)
   }
   return $somme;
 }
+

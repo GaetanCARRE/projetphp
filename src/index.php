@@ -37,6 +37,10 @@ switch($page) {
     case "admin":
         require_once("./admin/admin.php");
         break;
+
+    case "commandes":
+        require_once("./pages/commandes.php");
+        break;
         
     default:
         require_once('./pages/404.php');

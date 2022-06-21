@@ -24,6 +24,9 @@ function ajouter($image, $nom, $prix, $taille)
   $res->closeCursor();
 }
 
+
+
+
 function afficher($tri = "asc", $db, $cat = null)
 {
 

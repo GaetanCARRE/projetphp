@@ -33,40 +33,42 @@ $numCard = htmlspecialchars($_POST['numCard']);
 $city = htmlspecialchars($_POST['city']);
 $zipCode = htmlspecialchars($_POST['zipCode']);
 $c = strlen($cvv);
+if (($_SESSION['panier']!=null)) {
+  if (isset($_SESSION['user'])) {
+    if (strlen($numCard) == 16) {
+      if (strlen($cvv) == 3) {
+        if (strlen($zipCode) == 5) {
+          ajouter_commandes();
+          $commandes = nombre_commandes();
+          $insert = $bdd->prepare('INSERT INTO commandes(username, total_price,id) VALUES (:username,:total_price,:id)');
+          $insert->execute(array('username' => $user, 'total_price' => $total, 'id' => $commandes));
 
-if (isset($_SESSION['user'])) {
-  if (strlen($numCard) == 16) {
-    if (strlen($cvv) == 3) {
-      if (strlen($zipCode) == 5) {
-        ajouter_commandes();
-        $commandes = nombre_commandes();
-        $insert = $bdd->prepare('INSERT INTO commandes(username, total_price,id) VALUES (:username,:total_price,:id)');
-        $insert->execute(array('username' => $user, 'total_price' => $total, 'id' => $commandes));
+          foreach ($_SESSION['panier'] as $key) {
+            $id = $key['id'];
+            $price = (float)$key['prix'];
 
-        foreach ($_SESSION['panier'] as $key) {
-          $id = $key['id'];
-          $price = (double)$key['prix'];
-          
-          $update = $bdd->prepare('UPDATE product SET product.quantite = product.quantite- 1 where id='. $id);
-          $update->execute(array('username' => $user, 'total_price' => $total, 'id' => $commandes));
+            $update = $bdd->prepare('UPDATE product SET product.quantite = product.quantite- 1 where id=' . $id);
+            $update->execute(array('username' => $user, 'total_price' => $total, 'id' => $commandes));
 
-          file_put_contents('test.txt', gettype($key['prix']));
-          
-          $stmt = $bdd->prepare("INSERT INTO articleC(price, product_id,commandes_id) VALUES (?, ?, ?)");
-          
-          $stmt->bindParam(1, $price);
-          $stmt->bindParam(2, $id);
-          $stmt->bindParam(3, $commandes);
-          $stmt->execute();
+            file_put_contents('test.txt', gettype($key['prix']));
+
+            $stmt = $bdd->prepare("INSERT INTO articleC(price, product_id,commandes_id) VALUES (?, ?, ?)");
+
+            $stmt->bindParam(1, $price);
+            $stmt->bindParam(2, $id);
+            $stmt->bindParam(3, $commandes);
+            $stmt->execute();
+          }
+          header('Location:../index.php?p=checkout&payment=success');
+        } else {
+          header('Location:../index.php?p=checkout&payment=zip');
         }
-        header('Location:../index.php?p=checkout&payment=success');
       } else {
-        header('Location:../index.php?p=checkout&payment=zip');
+        header('Location:../index.php?p=checkout&payment=cvv');
       }
-    } else {
-      header('Location:../index.php?p=checkout&payment=cvv');
-    }
+    } else
+      header("Location:../index.php?p=checkout&payment=numcard");
   } else
-    header("Location:../index.php?p=checkout&payment=numcard");
+    header("Location:../index.php?p=checkout&payment=connexion");
 } else
-  header("Location:../index.php?p=checkout&payment=connexion");
+  header("Location:../index.php?p=checkout&payment=paniervide");

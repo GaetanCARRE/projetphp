@@ -124,7 +124,15 @@ if (isset($_GET['id'])) {
                     </div>
                 <?php
                 break;
-                
+
+                case 'paniervide':
+                    ?>
+                    <div>
+                        <strong>Erreur</strong> votre panier est vide
+                    
+                    </div>
+                <?php
+                break;
             }
             
         }

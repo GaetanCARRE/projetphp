@@ -555,7 +555,7 @@ hr {
     /* width: 600px; */
     background-color: #ececec;
     border-radius: 1rem;
-
+    margin-bottom: 3rem;
     /*margin-top: 123px;*/
     
     grid-area: t2; /********** modif jy**************/
@@ -635,3 +635,52 @@ hr {
             opacity:0;
         }
   }
+
+
+
+
+  /* --------------------------------Commandes--------------------------------- */
+
+  .commandes_container
+  {
+    margin-top: 7rem;
+    margin-left: 25rem;
+    margin-right: 25rem;
+    background-color: #ececec;
+    margin-bottom: 5rem;
+
+
+  }
+
+.commandes_container h1 
+{
+    text-align: center;
+}
+
+.img_commandes{
+    width: 40%;
+}
+
+.grid-container-commande
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-left: 2rem;
+    padding-left: 2rem;
+
+}
+
+.text-command
+{
+    padding-top: 4rem;
+    font-size: 18px;
+}
+
+.recap-commande
+{
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    padding-left: 2rem;
+}

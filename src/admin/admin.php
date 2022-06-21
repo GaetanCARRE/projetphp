@@ -1,5 +1,5 @@
 <?php
-$ordre = "asc";
+$ordre = 'asc';
 $cat = null;
 $page = 0;
 $Prix_min=0;
@@ -12,9 +12,12 @@ $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
 $id;
 echo "<br><br><br><br><br>";
 ?>
+<div class="grid-container-admin">
+<div class="ajout-article">
+<h2>Ajouter Article</h2>
 
-<div>
 <?php
+
 
 echo "<table>";
 echo "<tr>";
@@ -59,6 +62,17 @@ echo "<tr>";
     echo "</form>";
 
 echo "</tr>";
+
+echo "</table>";
+
+
+?>
+</div>
+
+<div class='admin_article'>
+<h2>Produit</h2>
+<?php
+echo "<table>";
 echo "<tr><td><br><br></td></tr>";
 foreach($product as $prod):
     echo "<tr>";
@@ -103,21 +117,59 @@ endforeach
 </table>
 
 </div>
-<div>
-<form>
-<input type="radio" id="huey" name="drone" value="huey"
-             checked>
-      <label for="huey">Huey</label>
+<div class='admin_filter'>
     
 
-    
-      <input type="radio" id="dewey" name="drone" value="dewey">
-      <label for="dewey">Dewey</label>
-    
+    <form class='checkout-form' action='./admin/appliquer_filtre.php' method='POST'>
+            <h2>Type de Filttre</h2>
+            <!-- <div>Méthode de paiement
+                    <br>
+                    <input type="checkbox" class="payment-checkbox"> <label>Visa</label><br>
+                    <input type="checkbox" class="payment-checkbox"> <label>MasterCard</label>
 
-    
-      <input type="radio" id="louie" name="drone" value="louie">
-      <label for="louie">Louie</label>
-    
-</form>
+                </div> -->
+
+            Nom croissant
+            <input type="radio"  name="filtre" value="asc">
+            Nom décroissant
+            <input type="radio"  name="filtre" value="desc">
+            prix croissant
+            <input type="radio"  name="filtre" value="prix_asc">
+            prix décroissant
+            <input type="radio"  name="filtre" value="prix_desc">
+
+
+
+            <button class='button-payment' type="submit" >Filtre</button>
+        </form>
+
+        <?php
+        if (isset($_GET['modif_err']))
+        {
+
+            $modif = htmlspecialchars($_GET['modif_err']);
+            switch($modif)
+            {
+                case 'success':
+                ?>
+        <script>
+ 
+            setTimeout(function() {
+             $('#filter_message').hide();
+            },2000);
+  
+ 
+        </script>
+         <div class ="success-msg" id="filter_message">
+         <i class="fa fa-check"></i>
+
+         <strong>Success:</strong> Filtre Appliquer !
+        </div>
+        <?php
+            }}
+        ?>
 </div>
+
+</div>
+</div>
+

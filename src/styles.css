@@ -567,3 +567,59 @@ hr {
     
 }
 
+
+/**********************Admin filter zone *******************/
+
+.grid-container-admin
+{
+    padding-top: 7rem;
+    display: grid;
+    grid-template-columns: 3fr 1.5fr;
+    gap: 2rem;
+    margin-left: 4rem;
+    margin-right: 4rem; 
+    grid-template-areas: "t2 t2"
+                         "t1 t3";
+                       /*  "t2 t3"; /********** modif jy**************/
+                          
+}
+
+.admin_filter
+{
+    grid-area: t3;
+    background-color: #ececec;
+    margin-bottom: 3rem;
+    border-radius: 1rem;
+   height: 450px;
+}
+
+ .admin_article
+{
+    display: grid;
+    background-color: #ececec;
+
+   /* grid-template-columns: 6fr 3fr 3fr 3fr 1fr;*/
+    grid-template-areas: "t1";
+    height: fit-content;
+    grid-area: t1;  
+    margin-bottom: 10px;
+    
+} 
+.ajout-article{
+    grid-area: t2;
+    background-color: #ececec;
+    padding-bottom: 10px;
+
+
+}
+
+.success-msg {
+    color: #270;
+    background-color: #DFF2BF;
+    height:30px;
+    width: 300px;
+    padding-top: 5px;
+    margin-left: 120px;
+    border-radius: 30px;
+    text-align: center;
+  }

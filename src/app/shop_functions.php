@@ -115,3 +115,13 @@ function Totalprix($id)
   }
   return $somme;
 }
+
+function getdata($file){
+  $data=(Array)json_decode(file_get_contents($file),true);
+  if(count($data)===0){
+      return [];
+  }
+  else{
+      return $data;
+  }
+}

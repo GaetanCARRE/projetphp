@@ -1,9 +1,17 @@
 <?php
-$ordre = "asc";
+/*
+if(isset( $_SESSION['filtre'])){
+    $ordre=$_SESSION['filtre'];
+}
+var_dump($_SESSION);*/
+
+require('./admin/appliquer_filtre.php');
+$ordre=file_get_contents('./admin/ordre.txt');
 $cat = null;
 $page = 0;
 $Prix_min=0;
 $Prix_max=1000;
+echo $ordre;
 $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
 
 
@@ -144,8 +152,9 @@ $product = afficherV2($ordre, $db, $cat,$Prix_min,$Prix_max);
         <a href="?p=shop&o=<?php echo $ordre?>&c=<?php echo $cat; ?>&pa=<?php ($page++); $page = $page%(sizeof($product)/9+1);echo $page;?>">&raquo;</a>
     </div>
 </div>
-
-
+<?php
+echo $ordre;
+?>
 <script>
     /* When the user clicks on the button, 
     toggle between hiding and showing the dropdown content */

@@ -27,7 +27,7 @@
                 if(strlen($nom) <= 100)
                 {
                     $insert = $db->prepare('INSERT INTO product(id,nom,prix,marque,image,taille,categorie, quantite) VALUES (?,?,?,?,?,?,?,?)');
-                    $insert-> execute([$id,$nom,$prix,"none",$image," ",$categorie,$quantite]);
+                    $insert-> execute([$id,$nom,$prix," ",$image," ",$categorie,$quantite]);
                     header("Location:../index.php?id=$id");
                 }
                 //else {header('Location:inscription.php?reg_err=email_length');die();}

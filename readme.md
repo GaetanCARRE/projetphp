@@ -16,10 +16,11 @@ Description du site:
 
 -Sur notre header nous pouvons retrouver à partir de la gauche un bouton pour se déconnecter, se connecter, pour se diriger vers l'accueil , et enfin vers le panier.
 
--Pour accéder aux différents articles de notre site de e-commerce cliquez sur "SHOP NOW". Vous allez être redirigés vers nos articles accompagnés chaqun d'une image l'illustrant lorsque vous passez dessus il y a l'ajout au panier. Lorsque un article est ajouté y a un compteur sur l'icone du panier.
+-Pour accéder aux différents articles de notre site de e-commerce cliquez sur "SHOP NOW". Vous allez être redirigés vers nos articles accompagnés chaqun d'une image l'illustrant et de son prix lorsque vous passez dessus il y a l'ajout au panier. Lorsque un article est ajouté y a un compteur sur l'icone du panier.
 
--Il y a possibilité de ordonner cette liste par prix et nom , ou sinon sélectionner la catégorie de l’article ou par tranche de prix via le bouton filtres.
+-Il y a possibilité de ordonner cette liste par prix et nom , ou sinon sélectionner la catégorie de l’article ou par tranche de prix via le bouton "FILTRES".
 
+-En se connectant avec le compte admin (dont les identifiants sont ci-dessous) on peut ajouter un article, voir ou changer la quantité du produit et changer le prix de ce dernier.
 
 
 

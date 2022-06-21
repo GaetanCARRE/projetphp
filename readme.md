@@ -12,7 +12,7 @@ BANANI Anas
 
 Bonjour voici quelques aides pour vous faciliter l'accès à notre site:
 
--Télécharger l'archive (disponible sur github)
+-Télécharger l'archive (disponible sur github @GaetanCARRE )
 
 -L'extraire et placer le dossier dans un serveur local
 

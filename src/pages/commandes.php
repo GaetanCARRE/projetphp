@@ -3,7 +3,7 @@ session_start();
 require_once('./config/config.php');
 $user = $_SESSION['user'];
 if($user == false)
-  header('Location:./account/index.php');
+  header('Location:./account/index.php');//renvoie vers la page de connexion
 
 
 function afficherCommandes($bdd, $user)

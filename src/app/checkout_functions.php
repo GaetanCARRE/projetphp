@@ -45,12 +45,15 @@ if (isset($_SESSION['user'])) {
 
         foreach ($_SESSION['panier'] as $key) {
           $id = $key['id'];
-          $price = $key['price'];
-          file_put_contents('test.txt', $commandes);
-          //enlever de la bdd
-          /* $insert = $bdd->prepare('INSERT INTO commandes_product(price, product_id,commandes_id) VALUES (:price,:product_id,:commandes_id)');
-                        $insert->execute(array('price' => 3, 'product_id' => 1, 'commandes_id' => 2)); */
-          $stmt = $bdd->prepare("INSERT INTO commandes_product(price, product_id,commandes_id) VALUES (?, ?, ?)");
+          $price = (double)$key['prix'];
+          
+          $update = $bdd->prepare('UPDATE product SET product.quantite = product.quantite- 1 where id='. $id);
+          $update->execute(array('username' => $user, 'total_price' => $total, 'id' => $commandes));
+
+          file_put_contents('test.txt', gettype($key['prix']));
+          
+          $stmt = $bdd->prepare("INSERT INTO articleC(price, product_id,commandes_id) VALUES (?, ?, ?)");
+          
           $stmt->bindParam(1, $price);
           $stmt->bindParam(2, $id);
           $stmt->bindParam(3, $commandes);

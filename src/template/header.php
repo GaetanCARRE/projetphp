@@ -31,7 +31,6 @@
             </a>
 
             <?php
-            if(isset($_SESSION['connected'])):
                 if($_SESSION['connected']):
                     ?>
                     <a href="./?p=commandes" class="a2" id="open">
@@ -46,7 +45,6 @@
                  </a>
                 <?php
                 
-                endif;
                 endif;
                 ?>
                     
